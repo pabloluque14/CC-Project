@@ -12,7 +12,7 @@ Para solucionar esto y fomentar el comercio de las tiendas locales se propone la
 # Arquitectura 
 
 La arquitectura del sistema estará basada en microservicios. Estos microservicios serán los siguientes: microservicio de gestión de usuarios, microservicios de gestión de tiendas y microservicio de gestión de estadísticas. La siguiente imagen muestra la estructura que tendrá en un principio la arquitectura del sistema.
-![](docs/imgagenes/arquitecturaSistema.png)
+![](docs/imagenes/arquitecturaSistema.png)
 
 
 
