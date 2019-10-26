@@ -37,6 +37,8 @@ Esta base de datos albergará la infromación relacionada con los usuarios del s
 Esta base de datos albergará la información relacionada con las tiendas del sistema.
 
 # Tecnologías empleadas
-
 Los microservicios serán programados en primera instancia en JAVA por la compatibilidad que este lenguaje ofrece y que extensamente usado en todo el mundo, aunque esto puede ser cambiado en un futuro si se considera más óptimo el uso de otro lenguaje. El framework usado para programar será Spring Boot en un principio. Para comunicar los microservicios se usará JSON, ya que es más ligero y legible que el resto de formatos. Se usará la interfaz REST para la comunicación ya que esta se apoya en el protoclo HTTP. Y para las bases de datos se usará MongoDB.
+
+# Licencia
+Este proyecto estará bajo licencia GNU General Public License v3.0.
 
