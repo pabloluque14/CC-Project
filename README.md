@@ -23,7 +23,7 @@ Este microservicio realizará las tareas de agregar nuevas tiendas, eliminar tie
 ## Microservicio de gestión de estadísticas
 Este microservicio realizará las tareas de controlar el registro de tiendas mejor valoradas en base a la experiencia de los usuarios. Para así posicionar por encima en el listado a las tiendas mejor valoradas.
 
-##Microservicio de LOG
+## Microservicio de LOG
 Este microservicio realizará la tarea de conectar los microservicios anteriores.
 
 # Bases de datos
@@ -41,4 +41,3 @@ Los microservicios serán programados en primera instancia en JAVA por la compat
 
 # Licencia
 Este proyecto estará bajo licencia [*GNU General Public License v3.0*](https://github.com/pabloluque14/CC-Project/blob/master/LICENSE).
-
