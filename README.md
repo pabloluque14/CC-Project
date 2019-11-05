@@ -5,7 +5,7 @@ Proyecto a desarrollar para la asignatura Cloud Computing del Master de Ingenier
 
 Se va a desarrollar una aplicación denominada ZoneShop, que permitirá a dueños de comercios locales de determinadas localidades ofertar sus servicios o productos a través de un entorno virtual en la nube. Dependiendo del producto o servicio, sete se podrá encragar a través de la aplicación.
 
-#Análisis del dominio del problema
+# Análisis del dominio del problema
 
 Dentro del dominio del problema se encuentran las siguientes entidades:
 
