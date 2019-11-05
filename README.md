@@ -10,33 +10,33 @@ Se va a desarrollar una aplicación denominada ZoneShop, que permitirá a dueño
 Dentro del dominio del problema se encuentran las siguientes entidades:
 
 + Tienda: Representa un establecimiento físico que oferta productos y/o servicios al consumidor local. Dentro de la aplicación las tiendas contarán con su información básica:
-	-Nombre.
-	-Descripción breve acerca de su negocio.
-	-Dirección física.
-	-Información de contacto.
+	- Nombre.
+	- Descripción breve acerca de su negocio.
+	- Dirección física.
+	- Información de contacto.
 
-+Producto: Representa un objeto físico o servicio el cuál es ofertado por una tienda en concreto. Los productos ofertados por las tiendas contarán con la siguiente información:
-	-Nombre.
-	-Descripción breve.
-	-Precio.
-	-Indicador de que el producto o servicio se puede adquirir online a través de la plataforma, de lo contrario solo se ofertará de manera física en la tienda.
++ Producto: Representa un objeto físico o servicio el cuál es ofertado por una tienda en concreto. Los productos ofertados por las tiendas contarán con la siguiente información:
+	- Nombre.
+	- Descripción breve.
+	- Precio.
+	- Indicador de que el producto o servicio se puede adquirir online a través de la plataforma, de lo contrario solo se ofertará de manera física en la tienda.
 
 
 # Arquitectura 
 
 La arquitectura del sistema estará basada en microservicios. Estos microservicios serán los siguientes: 
 
-+Shop-Manager: La labor principal de este microservicio será administrar las tiendas de la aplicación. Para ello implementará las siguientes funcionalidades:
-	-Creación de tiendas.
-	-Modificación de los datos de las tiendas.
-	-Eliminación de las tiendas.
-	-Añadir productos de las tiendas.
-	-Eliminar productos de las tiendas.
-	-Modificar los productos de las tiendas.
++ Shop-Manager: La labor principal de este microservicio será administrar las tiendas de la aplicación. Para ello implementará las siguientes funcionalidades:
+	- Creación de tiendas.
+	- Modificación de los datos de las tiendas.
+	- Eliminación de las tiendas.
+	- Añadir productos de las tiendas.
+	- Eliminar productos de las tiendas.
+	- Modificar los productos de las tiendas.
 
-+Transactions-Manager: La labor de este microservicio será el de procesar el pago por los productos que se oferten de manera online de las tiendas. También se encargará de generar el resguardo de la compra y registrarla.
++ Transactions-Manager: La labor de este microservicio será el de procesar el pago por los productos que se oferten de manera online de las tiendas. También se encargará de generar el resguardo de la compra y registrarla.
 
-+Statistics-Manager: La labor de este microservico será la de recoger las estadísticas de ventas y reseñas de las tiendas para asignarles una puntuación en base a ellas y así ordenarlas según las de mayor puntuación.
++ Statistics-Manager: La labor de este microservico será la de recoger las estadísticas de ventas y reseñas de las tiendas para asignarles una puntuación en base a ellas y así ordenarlas según las de mayor puntuación.
 
 
 La siguiente imagen muestra la estructura que tendrá en un principio la arquitectura del sistema.
