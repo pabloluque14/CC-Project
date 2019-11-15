@@ -14,6 +14,8 @@ Dentro del dominio del problema se encuentran las siguientes entidades:
 	- Descripción breve acerca de su negocio.
 	- Dirección física.
 	- Información de contacto.
+	- Valoración de la tienda.
+	- Número de transacciones.
 
 + Producto: Representa un objeto físico o servicio el cuál es ofertado por una tienda en concreto. Los productos ofertados por las tiendas contarán con la siguiente información:
 	- Nombre.
@@ -21,10 +23,17 @@ Dentro del dominio del problema se encuentran las siguientes entidades:
 	- Precio.
 	- Indicador de que el producto o servicio se puede adquirir online a través de la plataforma, de lo contrario solo se ofertará de manera física en la tienda.
 
++ Transacción: Una transacción es un intercambio (o pago) que se realiza entre dos entidades o sujetos. En el sistema se realizarán pagos de las personas que accedan a la aplicación, a las tiendas por los productos o servicios que estas ofrecen. Dentro de la aplicación las transacciones contarán con la siguiente información:
+	- Indentificador de la transacción.
+	- Nombre del  comprador.
+	- Nombre de la tienda.
+	- Servicio o producto de la tienda vendedora.
+	- Precio pagado por el comprador.
++ Estadísticas: Las estadísticas son información acerca de la interacción que tienen las personas con las tiendas del sistema. Esta información se generá calculando una puntuación en función de la valoración de la tienda y su número de transacciones.
 
-# Arquitectura 
+# Arquitectura
 
-La arquitectura del sistema estará basada en microservicios. Estos microservicios serán los siguientes: 
+La arquitectura del sistema estará basada en microservicios. Estos microservicios serán los siguientes:
 
 + Shop-Manager: La labor principal de este microservicio será administrar las tiendas de la aplicación. Para ello implementará las siguientes funcionalidades:
 	- Creación de tiendas.
