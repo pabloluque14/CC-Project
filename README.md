@@ -17,7 +17,7 @@ La arquitectura del sistema estará basada en microservicios. Estos microservici
 	- Eliminar productos de las tiendas.
 	- Modificar los productos de las tiendas.
 
-+ Transactions-Manager: La labor de este microservicio será el de procesar el pago por los productos que se oferten de manera online de las tiendas. También se encargará de generar el resguardo de la compra y registrarla. Con esta puntuación se ordenará las tiendas para recomendar las mejores valoradas.
++ Transactions-Manager: La labor de este microservicio será el de procesar el pago por los productos que se oferten de manera online de las tiendas. También se encargará de generar el resguardo de la compra y registrarla. 
 
 + Statistics-Manager: La labor de este microservico será la de recoger las estadísticas de ventas y reseñas de las tiendas para asignarles una puntuación en base a ellas y así ordenarlas según las de mayor puntuación.
 

@@ -27,4 +27,4 @@
 
 También se ha planteado el siguiente objeto de valor:
 
-+ Estadísticas: Las estadísticas son información acerca de la interacción que tienen las personas con las tiendas del sistema. Esta información se generá calculando una puntuación en función de la valoración de la tienda y su número de transacciones.
++ Estadísticas: Las estadísticas son información acerca de la interacción que tienen las personas con las tiendas del sistema. Esta información se generá calculando una puntuación en función de la valoración de la tienda y su número de transacciones. Con esta puntuación se ordenará las tiendas para recomendar las mejores valoradas.
