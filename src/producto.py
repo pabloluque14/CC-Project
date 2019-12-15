@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Producto:
     # Constructor de clase
     __id=0

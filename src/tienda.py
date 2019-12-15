@@ -1,20 +1,23 @@
+# -*- coding: utf-8 -*-
 from producto import Producto
 
 class Tienda(object):
 
 	__puntuacion=0
 	__ids=0
+	__val=0 # Valoración de la tienda
+	__trans=0 # Transacciones de la tienda
 
 	# Constructor de clase
-	def __init__(self, id, nombre, descripcion, direccion, infoContacto, val, trans):
+	def __init__(self, id, nombre, descripcion=None, direccion=None, infoContacto=None,):
 
 		self.id=id
 		self.nombre=nombre
 		self.descripcion=descripcion
 		self.direccion=direccion
 		self.infoContacto=infoContacto
-		self.val=val
-		self.trans=trans
+		self.__val=0
+		self.__trans=0
 		self.productos=[]
 
 	def setId(self,id):
@@ -48,10 +51,16 @@ class Tienda(object):
 		return self.infoContacto
 	
 	def setTrans(self,trans):
-		self.trans=trans
+		self.__trans=trans
 
 	def getTrans(self):
-		return self.trans
+		return self.__trans
+
+	def getVal(self):
+		return self.__val
+	
+	def setVal(self, val):
+		self.__val=val
 	
 	def getProductos(self):
 		return self.productos
@@ -66,11 +75,19 @@ class Tienda(object):
 		self.__ids+=1
 		return True
 
+	def getProducto_byId(self, id_producto):
+		cont = 0
+		for p in self.productos:
+			if p.getId() == id_producto:
+				return self.productos[cont]
+			cont+=1
+		return False
+
 	# Ver cuantos productos tiene la tienda
 	def __len__(self):
 		return len(self.productos)
 	# Eliminar producto por id
-	def delProducto(self, id_producto):
+	def delProducto_byId(self, id_producto):
 		cont=0
 		for p in self.getProductos():
 			if p.getId() == id_producto:

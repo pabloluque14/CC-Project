@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import sys
+sys.path.append('src')
 import unittest
 from producto import Producto
 from tienda import Tienda
