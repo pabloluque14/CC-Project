@@ -78,7 +78,7 @@ class Test(unittest.TestCase):
 
         tienda.delProducto_byId(0)
         self.assertEqual(len(tienda),1)
-
+        self.assertEqual(tienda.delProducto_byId(0), False)
 
 
 if __name__ == '__main__':
