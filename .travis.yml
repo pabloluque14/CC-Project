@@ -1,0 +1,24 @@
+# Lenguaje de programación
+language: python
+
+# Versiones de Python
+python:
+
+    - "3.5.8"
+    - "3.6.9"
+    - "3.7.0"
+    - "3.7.3"
+    - "3.7.5"
+    - "3.8.0"
+
+
+before_install:
+    - make install
+
+# Ejecutar test y test de cobertura
+script:
+    - make test
+
+#Pasa los resultados a codecov
+after_success:
+    - codecov
