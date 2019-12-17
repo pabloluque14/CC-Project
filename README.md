@@ -22,7 +22,9 @@ La información respecto a la tecnología del sistema y su despligue en la nube 
 Al ser el proyecto construido en Python se deberá disponer de cualquiera de las versiones de este desde la 3.5 hasta la versión 3.8. También se deberá tener instalado las herramientas `pip3` y `Makefile`.
 
 ## Herramienta de construcción
-Como herramienta de construcción para este proyecto se ha seleccionado Makefile: `buildtool: Makefile`. En primer lugar para instalar todas las dependencias del proyecto se ejecutará el comando:
+buildtool: Makefile
+
+Como herramienta de construcción para este proyecto se ha seleccionado `Makefile`. En primer lugar para instalar todas las dependencias del proyecto se ejecutará el comando:
 
 ```
 $ make install
