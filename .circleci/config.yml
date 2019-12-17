@@ -2,34 +2,25 @@
 #
 # Check https://circleci.com/docs/2.0/language-python/ for more details
 #
+
 version: 2
 jobs:
   build:
     docker:
-      # Versión de Python en la maquina de prueba
+      # Version con la que se trabaja desde la máquina local
       - image: circleci/python:3.5.2
-
     steps:
       - checkout
-
       - run:
-          name: install dependencies
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install -r requirements.txt
-
+          name: Instalar un entorno virtual con python3
+          command: pipenv install --three
       - run:
-          name: run tests
-          command: |
-            . venv/bin/activate
-            coverage run tests/tests.py
-
+          name: Instalar dependencias
+          command: pipenv run pip install -r requirements.txt
       - run:
-          name: show coverage tests results
-          command: |
-            . venv/bin/activate
-            coverage report -m
-
-
+          name: Ejecutar tests
+          command: pipenv run coverage run tests/tests.py
+      - run:
+          name: Ejecutar test de cobertura
+          command: pipenv run coverage report -m
 
