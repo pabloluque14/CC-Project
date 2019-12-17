@@ -15,7 +15,7 @@
 
 
 La siguiente imagen muestra la estructura que tendrá en un principio la arquitectura del sistema.
-![](docs/imagenes/arquitecturaSistema.png)
+![](imagenes/arquitecturaSistema.png)
 
 # Servicios
 Los servicios que se emplearán para este proyecto serán los siguientes:
