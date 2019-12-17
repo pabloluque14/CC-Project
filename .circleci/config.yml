@@ -3,24 +3,55 @@
 # Check https://circleci.com/docs/2.0/language-python/ for more details
 #
 
+# Python CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-python/ for more details
+#
 version: 2
 jobs:
   build:
     docker:
-      # Version con la que se trabaja desde la máquina local
+      # specify the version you desire here
+      # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
       - image: circleci/python:3.5.2
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/postgres:9.4
+
+    working_directory: ~/repo
+
     steps:
       - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "requirements.txt" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
       - run:
-          name: Instalar un entorno virtual con python3
-          command: pipenv install --three
+          name: install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
+
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
+
       - run:
-          name: Instalar dependencias
-          command: pipenv run pip install -r requirements.txt
-      - run:
-          name: Ejecutar tests
-          command: pipenv run coverage run tests/tests.py
-      - run:
-          name: Ejecutar test de cobertura
-          command: pipenv run coverage report -m
+          name: run tests
+          command: |
+            . venv/bin/activate
+            coverage run tests/tests.py
+            
+
+      - store_artifacts:
+          path: test-reports
+          destination: test-reports
 
