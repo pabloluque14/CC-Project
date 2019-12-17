@@ -24,5 +24,12 @@ jobs:
           command: |
             . venv/bin/activate
             coverage run tests/tests.py
-	    coverage report -m
+
+      - run:
+          name: show coverage tests results
+          command: |
+            . venv/bin/activate
+            coverage report -m
+
+
 
