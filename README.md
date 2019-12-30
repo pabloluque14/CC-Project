@@ -26,13 +26,12 @@ buildtool: Makefile
 
 Como herramienta de construcción para este proyecto se ha seleccionado `Makefile` la cual no necesita de instalación adicional. Esta herramienta permite realizar las siguientes tareas:
 
-  - Instalar las versiones necesarias de los paquetes usados para el proyecto en el entorno donde se vaya a ejecutar. Para ello se usa la herramienta `pip3`
+  - Instalar las versiones necesarias de los paquetes usados para el proyecto en el entorno donde se vaya a ejecutar. Para ello se usa la herramienta `pip3` para instalar las dependencias que vienen en el fichero `requirements.txt`.
 
-  - Ejecutar los tests unitarios, de integración y de cobertura sobre el proyecto.
+  - Ejecutar los tests unitarios, de integración y de cobertura sobre el proyecto.Los tests se han implementado con el módulo de Python [unittest](https://docs.python.org/3/library/unittest.html). Tiene como ventaja que no necesita instalación adicional y ofrece varias posibilidades para hacer un testeo del código. Para los test de cobertura se ha usado [coverage](https://coverage.readthedocs.io/en/coverage-5.0/#quick-start) el cuál se integra con unittest. Y para los tests de integración continua se ha usado [codecov](https://codecov.io/). Una vez ejecutado los tests se muestra el resultado de la cobertura.
 
-
-En el [fichero](Makefile) puede verse que se lleva a cabo cada tarea.
-En primer lugar para instalar todas las dependencias del proyecto se ejecutará el comando:
+En el [Makefile](Makefile) puede verse que se lleva a cabo cada tarea.
+El uso de Makefile es bastante simple, primero para instalar todas las dependencias del proyecto se ejecutará el comando por terminal:
 
 ```
 $ make install
@@ -43,7 +42,6 @@ Para ejecutar los tests sobre lo módulos ya programados y los tests de cobertur
 ```
 $ make test
 ```
-Los tests se han implementado con el módulo de Python [unittest](https://docs.python.org/3/library/unittest.html). Tiene como ventaja que no necesita instalación adicional y ofrece varias posibilidades para hacer un testeo del código. Para los test de cobertura se ha usado [coverage](https://coverage.readthedocs.io/en/coverage-5.0/#quick-start) el cuál se integra con unittest. Y para los tests de integración continua se ha usado [codecov](https://codecov.io/).
 
 ## Integración Continua
 En este proyecto se utiliza dos sistemas de integración continua: Travis CI y CircleCI. A continuación se describe que labores hacen cada uno:
