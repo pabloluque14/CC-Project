@@ -24,7 +24,15 @@ Al ser el proyecto construido en Python se deberá disponer de cualquiera de las
 ## Herramienta de construcción
 buildtool: Makefile
 
-Como herramienta de construcción para este proyecto se ha seleccionado `Makefile`. En primer lugar para instalar todas las dependencias del proyecto se ejecutará el comando:
+Como herramienta de construcción para este proyecto se ha seleccionado `Makefile` la cual no necesita de instalación adicional. Esta herramienta permite realizar las siguientes tareas:
+
+  - Instalar las versiones necesarias de los paquetes usados para el proyecto en el entorno donde se vaya a ejecutar. Para ello se usa la herramienta `pip3`
+
+  - Ejecutar los tests unitarios, de integración y de cobertura sobre el proyecto.
+
+
+En el [fichero](Makefile) puede verse que se lleva a cabo cada tarea.
+En primer lugar para instalar todas las dependencias del proyecto se ejecutará el comando:
 
 ```
 $ make install
@@ -39,9 +47,9 @@ Los tests se han implementado con el módulo de Python [unittest](https://docs.p
 
 ## Integración Continua
 En este proyecto se utiliza dos sistemas de integración continua: Travis CI y CircleCI. A continuación se describe que labores hacen cada uno:
-+ Travis CI: Travis se encarga de que el proyecto se construye adecuadamente y comprueba que tantos los tests unitarios, de integración y de cobertura se ejecutan sobre los módulos del proyecto correctamente para las versiones del lenguaje que se han especificado en el fichero de configuración y el sistema operativo donde se ha desarrolado el proyecto. Para este proyecto en concreto se comprobará que todo funciona correctamente para las versiones del lenguaje Python desde la 3.5.8 hasta la 3.8.0 en el Sistema Operativo linux. La configuración completa de Travis para este proyecto se encuntra [aquí](.travis.yml).
++ Travis CI: Travis se encarga de que el proyecto se construye adecuadamente y comprueba que tantos los tests unitarios, de integración y de cobertura se ejecutan sobre los módulos del proyecto correctamente para las versiones del lenguaje que se han especificado en el fichero de configuración y el sistema operativo donde se ha desarrolado el proyecto. Para este proyecto en concreto se comprobará que todo funciona correctamente para las versiones del lenguaje Python desde la 3.5.8 hasta la 3.8.0 en el Sistema Operativo linux. La configuración completa de Travis para este proyecto se encuentra [aquí](.travis.yml).
 
-+ CircleCI: Funciona de forma similar al anterior, solo que este lanza una imagen Docker donde se crea un entorno virtual en el cuál se monta el proyecto. Una vez crealo se "clona" el reposito en el entorno virtual. Para este proyecto la imagen Docker que se usa es de Python 3.7.5. El archivo de configuración completo puede encontrarse [aquí](.circleci/config.yml).
++ CircleCI: Funciona de forma similar al anterior, solo que este lanza una imagen Docker donde se crea un entorno virtual en el cuál se monta el proyecto. Una vez crealo se "clona" el reposito en el entorno virtual. Para este proyecto la imagen Docker que se usa es de Python 3.7.5. El archivo de configuración completa puede encontrarse [aquí](.circleci/config.yml).
 
 
 # Licencia
