@@ -24,7 +24,7 @@ Al ser el proyecto construido en Python se deberá disponer de cualquiera de las
 ## Herramienta de construcción
 buildtool: Makefile
 
-Como herramienta de construcción para este proyecto se ha seleccionado `Makefile` la cual no necesita de instalación adicional. Esta herramienta permite realizar las siguientes tareas:
+Como herramienta de construcción para este proyecto se ha seleccionado `Makefile`. Esta herramienta permite realizar las siguientes tareas:
 
   - Instalar las versiones necesarias de los paquetes usados para el proyecto en el entorno donde se vaya a ejecutar. Para ello se usa la herramienta `pip3` para instalar las dependencias que vienen en el fichero `requirements.txt`.
 
