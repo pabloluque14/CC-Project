@@ -3,11 +3,11 @@ version: 2
 jobs:
   build:
     docker:
-      #se selecciona la imagen docker de python donde se va a ejecutar los siguientes pasos
+      #imagen docker de python donde se va a ejecutar los siguientes pasos
       - image: circleci/python:3.7.5
     steps:
       - checkout
-      #Creamos entorno virtual para python
+      #Creamos entorno virtual para python donde montar el proyecto
       - run:
           name: crear entorno virtual 
           command: python3 -m venv venv
