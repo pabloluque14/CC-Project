@@ -1,57 +1,26 @@
-# Python CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-python/ for more details
-#
 
-# Python CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-python/ for more details
-#
 version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
-      # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
+      #se selecciona la imagen docker de python donde se va a ejecutar los siguientes pasos
       - image: circleci/python:3.7.5
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    working_directory: ~/repo
-
     steps:
       - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "requirements.txt" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
+      #Creamos entorno virtual para python
       - run:
-          name: install dependencies
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install -r requirements.txt
-
-      - save_cache:
-          paths:
-            - ./venv
-          key: v1-dependencies-{{ checksum "requirements.txt" }}
-
+          name: crear entorno virtual 
+          command: python3 -m venv venv
+      #Instalamos las dependencias con make
       - run:
-          name: run tests
+          name: instalar dependencias
           command: |
-            . venv/bin/activate
-            coverage run tests/tests.py
+                  . venv/bin/activate
+                  make install
 
-
-      - store_artifacts:
-          path: test-reports
-          destination: test-reports
-
+      # Ejecutamos tests y tests de cobertura
+      - run:
+          name: Ejecutar tests
+          command: |
+                  . venv/bin/activate
+                  make test
