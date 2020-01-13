@@ -4,23 +4,28 @@ jobs:
   build:
     docker:
       #imagen docker de python donde se va a ejecutar los siguientes pasos
-      - image: circleci/python:3.7.5
+      - image: circleci/python:3.6.9
     steps:
       - checkout
-      #Creamos entorno virtual para python donde montar el proyecto
-      - run:
-          name: crear entorno virtual 
-          command: python3 -m venv venv
-      #Instalamos las dependencias con make
+      #Instalamos las dependencias y creamos entorno virtual con make
       - run:
           name: instalar dependencias
-          command: |
-                  . venv/bin/activate
-                  make install
-
+          command: make install
+  test:
+    docker:
+      #imagen docker de python donde se va a ejecutar los siguientes pasos
+      - image: circleci/python:3.6.9
+    steps:
+      - checkout
       # Ejecutamos tests y tests de cobertura
       - run:
           name: Ejecutar tests
-          command: |
-                  . venv/bin/activate
-                  make test
+          command: make test
+# con el work flow hacemos que el build and test se paralelice
+#y asi ahorrar tiempo
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
