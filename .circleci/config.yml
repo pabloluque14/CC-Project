@@ -7,20 +7,12 @@ jobs:
       - image: circleci/python:3.7.5
     steps:
       - checkout
-      #Creamos entorno virtual para python donde montar el proyecto
-      - run:
-          name: crear entorno virtual 
-          command: python3 -m venv venv
       #Instalamos las dependencias con make
       - run:
           name: instalar dependencias
-          command: |
-                  . venv/bin/activate
-                  make install
+          command: make install
 
       # Ejecutamos tests y tests de cobertura
       - run:
           name: Ejecutar tests
-          command: |
-                  . venv/bin/activate
-                  make test
+          command:  make test
