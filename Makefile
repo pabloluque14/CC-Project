@@ -11,4 +11,4 @@ test: tests/tests.py
 	# Mostrar el resultado de los tests de cobertura
 	pipenv run coverage report -m
 	# sube resultados a codecov
-	codecov
+	pipenv run codecov
