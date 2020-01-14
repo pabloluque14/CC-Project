@@ -10,8 +10,8 @@ jobs:
       # descargamos las dependencias de la cache
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "Pipfile.lock" }}
-            - v1-dependencies-
+            - v1-dependencies-{{ checksum "Pipfile.lock" }} #fichero con dependencias al usar pipenv en el make
+            - v1-dependencies- #comprobación mas generica de la cache
 
       #Instalamos las dependencias y creamos entorno virtual con make
       - run:
@@ -25,5 +25,5 @@ jobs:
 
       - save_cache:
           paths:
-           - ~/.local/share/virtualenvs/venv
-          key: v1-dependencies-{{ checksum "Pipfile.lock" }}
+           - ~/.local/share/virtualenvs/venv #ruta por defecto del entorno virtual
+          key: v1-dependencies-{{ checksum "Pipfile.lock" }} #se usa la misma llave para guardar la cache 
