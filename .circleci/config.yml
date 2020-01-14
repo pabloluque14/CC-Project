@@ -11,21 +11,8 @@ jobs:
       - run:
           name: instalar dependencias
           command: make install
-  test:
-    docker:
-      #imagen docker de python donde se va a ejecutar los siguientes pasos
-      - image: circleci/python:3.6.9
-    steps:
-      - checkout
+  
       # Ejecutamos tests y tests de cobertura
       - run:
           name: Ejecutar tests
           command: make test
-# con el work flow hacemos que el build and test se paralelice
-#y asi ahorrar tiempo
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
-      - test
