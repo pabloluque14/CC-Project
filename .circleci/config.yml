@@ -24,6 +24,6 @@ jobs:
           command: make test
 
       - save_cache:
-      paths:
-        - ~/.local/share/virtualenvs/venv
-      key: v1-dependencies-{{ checksum "Pipfile.lock" }}
+          paths:
+           - ~/.local/share/virtualenvs/venv
+          key: v1-dependencies-{{ checksum "Pipfile.lock" }}
