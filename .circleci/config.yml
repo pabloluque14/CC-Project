@@ -4,14 +4,14 @@ jobs:
   build:
     docker:
       #imagen docker de python donde se va a ejecutar los siguientes pasos
-      - image: circleci/python:3.6.9
+      - image: circleci/python:3.7.5
     steps:
       - checkout
       #Instalamos las dependencias y creamos entorno virtual con make
       - run:
           name: instalar dependencias
           command: make install
-  
+
       # Ejecutamos tests y tests de cobertura
       - run:
           name: Ejecutar tests
