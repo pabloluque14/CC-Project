@@ -7,6 +7,12 @@ jobs:
       - image: circleci/python:3.6.9
     steps:
       - checkout
+      # descargamos las dependencias de la cache
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Pipfile.lock" }}
+            - v1-dependencies-
+
       #Instalamos las dependencias y creamos entorno virtual con make
       - run:
           name: instalar dependencias
@@ -16,3 +22,8 @@ jobs:
       - run:
           name: Ejecutar tests
           command: make test
+
+      - save_cache:
+      paths:
+        - ~/.local/share/virtualenvs/venv
+      key: v1-dependencies-{{ checksum "Pipfile.lock" }}
