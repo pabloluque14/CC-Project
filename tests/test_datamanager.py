@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
+import os
 sys.path.append('src')
 import unittest
 from datamanager import DataManager
@@ -7,12 +8,12 @@ from datamanager import DataManager
 class Test(unittest.TestCase):
 
     def test_constructor(self):
-        DM = DataManager('localhost:28900', 'test', 'test_shops')
+        DM = DataManager(os.environ['DB_URI'], 'test', 'test_shops')
         self.assertNotEqual(DM.getStatus(),"connection error")
 
 
     def test_metodos(self):
-        DM = DataManager('localhost:28900', 'test', 'test_shops')
+        DM = DataManager(os.environ['DB_URI'], 'test', 'test_shops')
 
         shop = {
             "nombre": "Cascabeles",
@@ -67,7 +68,7 @@ class Test(unittest.TestCase):
 
 
     def test_integracion(self):
-        DM = DataManager('localhost:28900', 'test', 'test_shops_integration')
+        DM = DataManager(os.environ['DB_URI'], 'test', 'test_shops_integration')
 
         shop = {
             "nombre": "App Store",
