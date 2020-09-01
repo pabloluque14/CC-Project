@@ -5,6 +5,7 @@ jobs:
     docker:
       #imagen docker de python donde se va a ejecutar los siguientes pasos
       - image: circleci/python:3.6.9
+      - image: mongo:3.6.3
     steps:
       - checkout
       # descargamos las dependencias de la cache

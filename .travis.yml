@@ -10,6 +10,10 @@ python:
     - "3.7.5" # ultima actualizacion en 2019
     - "3.8.0" # ultima actualizacion en 2019
 
+# Base de datos para las pruebas
+services:
+    - mongodb
+
 #Crea entorno virtual e instala dependencias
 before_install:
     - make install
