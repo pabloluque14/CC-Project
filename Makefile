@@ -6,8 +6,9 @@ install: requirements.txt
 	pipenv run	pip3 install -r requirements.txt
 # Ejecutar los tests
 test: 
-	# Este comando ejecuta tanto los tests unitarios y de integración como los tests de cobertura
+	# Estos comando ejecuta tanto los tests unitarios y de integración como los tests de cobertura
 	pipenv run coverage run tests/test_datamanager.py
+	# tests sobre el microservicio shop-manager
 	pipenv run coverage run tests/test_shopmanager.py
 	# Mostrar el resultado de los tests de cobertura
 	pipenv run coverage report -m
