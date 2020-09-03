@@ -13,7 +13,7 @@ class TestEventsRest(unittest.TestCase):
 
     def setUp(self):
         self.client = shop_manager.app.test_client()
-        self.api = "http://"+os.environ['SM_URI']
+        self.api = "http://"+os.environ['DB_URI']
 
     
     def test_unitario(self):
