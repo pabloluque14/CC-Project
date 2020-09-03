@@ -50,5 +50,32 @@ En este proyecto se utiliza dos sistemas de integración continua: Travis CI y C
 + CircleCI: Funciona de forma similar al anterior, solo que este lanza una imagen Docker donde se crea un entorno virtual en el cuál se monta el proyecto. Una vez creado se "clona" el repositorio en el entorno virtual. Para este proyecto la imagen Docker que se usa es de Python 3.6.9 (versión de desarrollo). Se ha añadido el uso de cache dentro de la configuración de Circle Ci para que tarde menos en poner marcha en proyecto ya que solo descargará las dependencias obsoletas o que se añadan directamente. La documentación pertinente al "caching" puede encontrarse [aquí](https://circleci.com/docs/2.0/caching/). El archivo de configuración para ver la configuración completa, puede encontrarse [aquí](.circleci/config.yml).
 
 
+## Microservicios
+El primer microservicio ha sido creado como una API Rest siguiendo las [mejores prácticas](https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask) posibles. Esta api solo admite peticiones HTTP e implementa las funciones básicas CRUD para cada tienda y producto de dicha tienda. La estructura puede verse [aquí](https://github.com/pabloluque14/CC-Project/blob/master/src/shop_manager.py). 
+Como mediador entre la base de datos mongo y el microservicio se ha creado un objeto denominado [datamanager](https://github.com/pabloluque14/CC-Project/blob/master/src/datamanager.py). Este objeto permite inhibir el microservicio de la lógica de los datos interna haciendo de organizador de la base de datos.
+
+
+
+## Docker
+El microservicio shop manager ha sido encapsulado en un contenedor Docker, que en primer lugar se la seleccionado la imagen base de entre las [mejores](https://pythonspeed.com/articles/base-image-python-docker-images/) candidatas para nuestro microservicio. Posteriormente se ha hecho una prueba de rendimiento entre estas para ver cuales han ofrecen mejores prestaciones. Para ello se ha usado la herramienta [apache benchmark](https://httpd.apache.org/docs/2.4/programs/ab.html). La prueba realizada sobre los contenedores construidos posteriormente con cada imagen base es la siguiente:
+
+```
+ab -n 10000 -c 10 http://localhost:5000/
+```
+Dond -n es el numero de peticiones y -c la concurrencia. Como se puede ver la tablas las imagenes base de pyton 3.8 slim buster y debian buster ofrecen rendimiento similar, pero como la imagen de python ocupa mucho menos espacio, ha sido esta la seleccionada.
+
+|         Imagenes        | Tamaño | Tiempo por respuesta | Respuesta por segundo |
+|:-----------------------:|:------:|:--------------------:|:---------------------:|
+|   python: 3.7.9-buster  | 905 MB |       5.757 ms       |        1736.95        |
+| python: 3.8-slim-buster |  143MB |       5.376 ms       |        1860.06        |
+|      ubuntu: 18.04      |  482MB |       5.707 ms       |        1752.30        |
+|      debian: buster     |  587MB |       5.333 ms       |        1875.25        |
+
+Para el microservicio shop manager en concreto ha sido creado su propio requeriment para instalar solo los paquetes necesarios. El repositorio de docker hub donde se encuentra el primer microservicio es el siguiente:
+
+```
+shop_manager: https://hub.docker.com/repository/docker/pabloluque14/cc-project 
+```
+
 # Licencia
 Este proyecto estará bajo licencia [*GNU General Public License v3.0*](https://github.com/pabloluque14/CC-Project/blob/master/LICENSE).
