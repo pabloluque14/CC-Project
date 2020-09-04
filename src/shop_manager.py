@@ -7,7 +7,6 @@ app = Flask(__name__)
 
 DM = DataManager(os.environ['DB_URI'], 'cc', 'shops')
 
-
 @app.route('/shops', methods=['GET'])
 def get_shops(): 
     result = DM.find_all() 
