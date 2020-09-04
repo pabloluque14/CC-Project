@@ -77,7 +77,7 @@ def put_shop():
     else:
         return  make_response(jsonify({'error': 'Shop already exist'}), 404)
 
-
+# Funcionalidad para borrar tienda
 @app.route('/shops', methods=['DELETE'])
 def delete_shop():
 
