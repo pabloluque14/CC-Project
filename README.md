@@ -73,9 +73,9 @@ Dond -n es el numero de peticiones y -c la concurrencia. Como se puede ver la ta
 
 Para el microservicio shop manager en concreto ha sido creado su propio requeriment para instalar solo los paquetes necesarios. El repositorio de docker hub donde se encuentra el primer microservicio es el siguiente:
 
-```
-shop_manager: https://hub.docker.com/repository/docker/pabloluque14/cc-project 
-```
+
+Contenedor: https://hub.docker.com/repository/docker/pabloluque14/cc-project 
+
 
 # Licencia
 Este proyecto estará bajo licencia [*GNU General Public License v3.0*](https://github.com/pabloluque14/CC-Project/blob/master/LICENSE).
