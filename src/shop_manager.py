@@ -23,7 +23,7 @@ def get_shop(nombre):
         return  make_response(jsonify({'error': 'Shop does not exist'}), 404)
     return Response(json_util.dumps(result), status=200, mimetype="application/json")
 
-
+# Funcionalidad para modificar tienda
 @app.route('/shops', methods=['POST'])
 def post_shop():
     
@@ -51,7 +51,7 @@ def post_shop():
         else:
             return  make_response(jsonify({'error': 'Shop not found'}), 404)
 
-    
+ 
 @app.route('/shops', methods=['PUT'])
 def put_shop():
     
