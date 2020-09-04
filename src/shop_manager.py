@@ -51,7 +51,7 @@ def post_shop():
         else:
             return  make_response(jsonify({'error': 'Shop not found'}), 404)
 
- 
+# Funcionalidad para crear una tienda 
 @app.route('/shops', methods=['PUT'])
 def put_shop():
     
