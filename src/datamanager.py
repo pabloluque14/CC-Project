@@ -154,5 +154,20 @@ class DataManager:
         new ={"$pull": {"productos": {"nombre_p": product_name}}}
         self.collection.update_one(myquery,new)
         return True
+    
+    def isShopTrans(self, name):
+        if self.collection.count_documents({'nombre_t': name}) > 0:
+            return True
+        else:
+            return False
 
-        
+    def save_trans(self,trans): 
+        # insertar un venta en la colección
+        self.collection.insert_one(trans)
+        return True
+
+    def find_trans(self,nombre):
+        if self.isShopTrans(nombre) == False:
+            return False
+        result=self.collection.find({'nombre_t':nombre})
+        return result

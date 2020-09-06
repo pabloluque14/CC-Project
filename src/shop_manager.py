@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 DM = DataManager(os.environ['DB_URI'], 'cc', 'shops')
 
+
 @app.route('/shops', methods=['GET'])
 def get_shops(): 
     result = DM.find_all() 
@@ -50,7 +51,7 @@ def post_shop():
         else:
             return  make_response(jsonify({'error': 'Shop not found'}), 404)
 
-# Funcionalidad para crear una tienda 
+# Funcionalidad para insertar una tienda 
 @app.route('/shops', methods=['PUT'])
 def put_shop():
     
