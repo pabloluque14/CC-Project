@@ -11,9 +11,9 @@ test:
 	# tests sobre el microservicio shop-manager
 	pipenv run coverage run tests/test_shopmanager.py
 	# tests sobre el microservicio transaction-manager
-	pipenv run coverage run tests/test_transactionsmanager.py
+	pipenv run coverage run tests/test_transactionmanager.py
 	# tests sobre el microservicio statistic-manager
-	pipenv run coverage run tests/test_statisticsmanager.py
+	pipenv run coverage run tests/test_statisticmanager.py
 	# Mostrar el resultado de los tests de cobertura
 	pipenv run coverage report -m
 	# pasamos los resultados a codecov
